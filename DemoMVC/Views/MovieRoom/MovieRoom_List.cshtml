@@ -1,0 +1,32 @@
+﻿
+
+
+<form>
+    <table border="1">
+        <tbody>
+            @{
+                foreach (var R in Model)
+                {
+                    <tr>
+                        <td>@R.RowName</td>
+                        @{
+                            foreach (var C in R.MovieRoom_Cell)
+                            {
+                                if (C.NovieRoom_Sell.Count == 0)
+                                {
+                                    <td>
+                                        <input type="button" value="@C.CellName" />
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td><input type="button" value="取消售出" onclick="" /></td>
+                                }
+                            }
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</form>
