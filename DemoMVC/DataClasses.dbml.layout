@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3546331c-a5ce-459b-935c-d887d6f90514" absoluteBounds="3.5, 0.875, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/DataClassesDataContext/MovieRoom_Cell" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec040f73-d8bf-4b23-adf6-f3d9bad513d6" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="629ebbbb-06ba-48b2-8523-00b55c618f9e" absoluteBounds="6.25, 1.25, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/DataClassesDataContext/NovieRoom_Sell" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b9ccd85-0364-455e-a495-f27832c6ee63" absoluteBounds="6.265, 1.71, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8729a227-69c6-433c-8b1b-9fab6dc9f825" absoluteBounds="0.75, 1, 2, 1.7220992024739581">
+      <DataClassMoniker Name="/DataClassesDataContext/MovieRoom_Row" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09874ba5-1241-438c-978e-679fd5c54712" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.92625549316406); (6.25 : 1.92625549316406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/MovieRoom_Cell/MovieRoom_Cell_NovieRoom_Sell" />
+      <nodes>
+        <classShapeMoniker Id="3546331c-a5ce-459b-935c-d887d6f90514" />
+        <classShapeMoniker Id="629ebbbb-06ba-48b2-8523-00b55c618f9e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.86104960123698); (3.5 : 1.86104960123698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/MovieRoom_Row/MovieRoom_Row_MovieRoom_Cell" />
+      <nodes>
+        <classShapeMoniker Id="8729a227-69c6-433c-8b1b-9fab6dc9f825" />
+        <classShapeMoniker Id="3546331c-a5ce-459b-935c-d887d6f90514" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

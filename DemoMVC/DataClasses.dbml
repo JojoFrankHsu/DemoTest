@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_DemoTest" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\db_DemoTest.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="db_DemoTestConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.MovieRoom_Cell" Member="MovieRoom_Cell">
+    <Type Name="MovieRoom_Cell">
+      <Column Name="MRCID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MRRID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CellName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="SortNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="MovieRoom_Cell_NovieRoom_Sell" Member="NovieRoom_Sell" ThisKey="MRCID" OtherKey="MRCID" Type="NovieRoom_Sell" />
+      <Association Name="MovieRoom_Row_MovieRoom_Cell" Member="MovieRoom_Row" ThisKey="MRRID" OtherKey="MRRID" Type="MovieRoom_Row" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NovieRoom_Sell" Member="NovieRoom_Sell">
+    <Type Name="NovieRoom_Sell">
+      <Column Name="SeqNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MRCID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="MovieRoom_Cell_NovieRoom_Sell" Member="MovieRoom_Cell" ThisKey="MRCID" OtherKey="MRCID" Type="MovieRoom_Cell" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieRoom_Row" Member="MovieRoom_Row">
+    <Type Name="MovieRoom_Row">
+      <Column Name="MRRID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RowName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SortNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="MovieRoom_Row_MovieRoom_Cell" Member="MovieRoom_Cell" ThisKey="MRRID" OtherKey="MRRID" Type="MovieRoom_Cell" />
+    </Type>
+  </Table>
+</Database>
