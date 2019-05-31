@@ -17,11 +17,44 @@ namespace DemoMVC.Controllers
 
         public ActionResult MovieRoom_List()
         {
-            ViewBag.Title = "Hi";
             var Rs = DC.MovieRoom_Row.OrderBy(q => q.SortNo);
             return View(Rs);
         }
+        //[HttpPost]
+        public ActionResult MovieRoom_SellAdd(long ID)
+        {
+            ViewBag.Msg = "";
+            var S = DC.NovieRoom_Sell.FirstOrDefault(q => q.MRCID == ID);
+            if (S != null)
+                ViewBag.Msg = "此位置已有人購買";
+            else
+            {
+                NovieRoom_Sell N = new NovieRoom_Sell();
+                N.MRCID = ID;
+                N.CreDate = DateTime.Now;
+                DC.NovieRoom_Sell.InsertOnSubmit(N);
+                DC.SubmitChanges();
+                ViewBag.Msg = "購買成功";
+            }
+                
+            MovieRoom_List();
+            return View("MovieRoom_List");
+        }
 
+        public ActionResult MovieRoom_SellRemove(long ID)
+        {
+            ViewBag.Msg = "";
+            var S = DC.NovieRoom_Sell.FirstOrDefault(q => q.MRCID == ID);
+            if (S != null)
+            {
+                DC.NovieRoom_Sell.DeleteOnSubmit(S);
+                DC.SubmitChanges();
+                ViewBag.Msg = "此位置已釋出";
+            }
+                
 
+            MovieRoom_List();
+            return View("MovieRoom_List");
+        }
     }
 }
