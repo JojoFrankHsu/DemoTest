@@ -1,0 +1,50 @@
+﻿
+@{
+
+}
+
+<h2>新增/修改行數</h2>
+@using (Html.BeginForm())
+{
+<input type="hidden" value="@Model.MRRID" name="MRRID" />
+    <table>
+        <tbody>
+
+            <tr>
+                <td>行別名稱</td>
+                <td><input id="Title" name="RowName" type="text" value="@Model.RowName" /></td>
+
+            </tr>
+            <tr>
+                <td>順序</td>
+                <td><input id="Sort" name="SortName" type="number" width="80" value="@Model.SortNo" /></td>
+
+            </tr>
+            @{
+                if (Model.MRRID > 0)
+                {
+                    <tr>
+                        <td>新增時間</td>
+                        <td>@Model.CreDate</td>
+
+                    </tr>
+                    @{
+                        if (Model.CreDate != Model.UpdDate)
+                        {
+                            <tr>
+                                <td>更新時間</td>
+                                <td>@Model.UpdDate</td>
+
+                            </tr>
+                        }
+                    }
+                }
+            }
+
+
+        </tbody>
+    </table>
+    <input type="submit" value="送出" />
+
+}
+

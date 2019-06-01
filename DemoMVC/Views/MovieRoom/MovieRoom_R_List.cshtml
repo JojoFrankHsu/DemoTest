@@ -1,0 +1,46 @@
+﻿
+
+
+<div style="text-align:center">
+    <a href="/MovieRoom/MovieRoom_R_Edit/0">新增</a>
+</div>
+<table border="1">
+    <tbody>
+        <tr>
+            <td>標題</td>
+            <td>順序</td>
+            <td>編輯</td>
+            <td>刪除</td>
+        </tr>
+        @{
+            foreach (var R in Model)
+            {
+                <tr>
+                    <td>@R.RowName</td>
+                    <td>@R.SortNo</td>
+                    <td>
+                        <a href="/MovieRoom/MovieRoom_R_Edit/@R.MRRID">編輯</a>
+                    </td>
+
+                    <td>
+                        <a href="/MovieRoom/MovieRoom_R_Remove/@R.MRRID">移除</a>
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@{
+    if (ViewBag.Msg != null)
+    {
+        if (ViewBag.Msg != "")
+        {
+            <script>
+                alert(@ViewBag.Msg);
+            </script>
+
+        }
+    }
+}
